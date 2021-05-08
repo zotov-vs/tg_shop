@@ -1,11 +1,2 @@
 aiogram~=2.12
 environs~=8.0.0
-sqlalchemy
-sqlalchemy_paginator
-asyncpg
-gino
-loguru
-uuid
-requests
-phonenumbers
-boto3
