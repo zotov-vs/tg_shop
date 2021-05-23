@@ -89,8 +89,7 @@ class OrderLine(TimedBaseModel):
 
             if data_update:
                 await self.update(**data_update).apply()
-            else:
-                pass
+
         except UniqueViolationError:
             pass
 
@@ -114,7 +113,6 @@ class OrderLine(TimedBaseModel):
                 line_update = {'quantity': quantity, 'price': price, 'deleted_at': func.now()}
                 if line_update:
                     await line.update(**line_update).apply()
-                else:
-                    pass
+
         except UniqueViolationError:
             pass

@@ -11,7 +11,7 @@ from utils.db_api.models.bills import Bill
 
 
 class Payment:
-    id: str = None
+    id: str = ""
     customer_id: int = 0
     order_id: int = 0
     amount: int = 0
