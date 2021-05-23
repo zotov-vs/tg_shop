@@ -4,6 +4,8 @@ from aiogram import types
 from aiogram.dispatcher.filters.state import StatesGroup, State
 from aiogram.dispatcher import FSMContext
 
+from data.localization import emoji_delete, emoji_completed, emoji_yes
+
 
 class Questions:
     name = ""
@@ -56,12 +58,12 @@ class Form1(StatesGroup):
             else:
                 answer = data.get(key)
                 if answer is not None:
-                    res += "✅ " + "<code>" + question.text + "</code>" + f"{answer or ''}" + "\n"
+                    res += f"{emoji_completed} <code>{question.text}</code> {answer or ''}\n"
                 else:
                     if error_text is not None and current_state == key:
-                        res += "❌ " + "<code>" + question.text + "</code>" + f"{error_text or '-'}" + "\n"
+                        res += f"{emoji_delete} <code>{question.text}</code> {error_text or '-'}\n"
                     else:
-                        res += "✔️ " + "<code>" + question.text + "</code>" + f"{answer or '-'}" + "\n"
+                        res += f"{emoji_yes} <code>{question.text} </code> {answer or '-'}\n"
 
         if current_question is not None:
             res += "\n" + current_question.question + "\n"
