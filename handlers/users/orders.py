@@ -21,11 +21,6 @@ async def products_list_edit(call: CallbackQuery, callback_data: dict, state: FS
     order = await Order.get(int(callback_data.get('id')))
     order_text = await order.get_description()
 
-    # Получим сообщение с данным заказом
-    state_data = await state.get_data()
-    order_key_name = f"orders_{order.id}_message_id"
-    orders_message_id = state_data[order_key_name]
-
     await order.set_satus(2)
 
     # 2. Создаем счет на оплату

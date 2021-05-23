@@ -10,7 +10,7 @@ from utils.db_api.models.custumers import add_customer
 async def bot_start(message: types.Message):
 
     deep_link_args = message.get_args()
-    customer = await add_customer(message.from_user, deep_link_args)
+    await add_customer(message.from_user, deep_link_args)
     discount = 10
     promocode = 15
     bonuses = 300
