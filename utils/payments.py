@@ -20,7 +20,7 @@ class Payment:
     date_expire: datetime
 
     def __init__(self, bill: Bill = None, **kwargs):
-        if Bill:
+        if bill:
             self.id = bill.uid
             self.customer_id = bill.customer_id
             self.order_id = bill.order_id
