@@ -1,3 +1,4 @@
+from . import files
 from . import catalog
 from . import orders
 from . import forms

@@ -22,3 +22,9 @@ QIWI_TOKEN = env.str("QIWI_TOKEN")
 QIWI_WALLET= env.str("QIWI_WALLET")
 QIWI_PUBLIC_KEY = env.str("QIWI_PUBLIC_KEY")
 QIWI_SECRET_KEY = env.str("QIWI_SECRET_KEY")
+
+# s3 storage
+S3_ACCESS_KEY = env.str("S3_ACCESS_KEY")
+S3_SECRET_KEY = env.str("S3_SECRET_KEY")
+S3_URL = env.str("S3_URL")
+S3_BUCKET = env.str("S3_BUCKET")

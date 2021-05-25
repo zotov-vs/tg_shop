@@ -13,6 +13,7 @@ class Product(TimedBaseModel):
     product_description = db.Column(db.String(1024), nullable=True)
     product_image = db.Column(db.String(1024), nullable=True)
     stock_issue_pattern = db.Column(db.String(1024), nullable=True)
+    key_pattern = db.Column(db.String(1024), nullable=True)
 
     product_price = db.Column(db.Integer, nullable=True)
     comment = db.Column(db.String(255), default='')
@@ -23,9 +24,10 @@ class Product(TimedBaseModel):
         result = await Product.query.where(Product.parent_id == self.id).gino.all()
         return result
 
-    # Возвращает остаток товара
-    async def get_stock(self):
-        if entit
+    # # Возвращает остаток товара
+    # async def get_stock(self):
+    #     if self.entity_type_id == 4:
+
 
 
     async def get_caption(self):

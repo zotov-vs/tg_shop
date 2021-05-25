@@ -11,6 +11,21 @@ from keyboards.inline.udemy import get_keyboard
 from loader import dp
 
 from states.forms import Form
+from utils.db_api.models.phones import Phone
+
+
+@dp.message_handler(text="Проверить номер")
+async def start_check_phone(message: types.Message, state: FSMContext):
+    await message.answer("Введите номер телефона:")
+    await Form.phone.set()
+
+
+@dp.message_handler(state=Form.phone)
+async def answer(message: types.Message, state: FSMContext):
+    error_text = await Phone.add(customer_id=message.from_user.id, source_number=message.text)
+    if error_text:
+        await message.reply(error_text)
+    await state.finish()
 
 
 @dp.message_handler(Command("items"))

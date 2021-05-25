@@ -78,3 +78,4 @@ class Form(StatesGroup):
     name = State()
     email = State()
     phone = State()
+    document = State()
