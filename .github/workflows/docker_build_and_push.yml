@@ -23,6 +23,17 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build and push
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+
+          QIWI_TOKEN: ${{ secrets.QIWI_TOKEN }}
+          QIWI_WALLET: ${{ secrets.QIWI_WALLET }}
+
+          S3_ACCESS_KEY: ${{ secrets.S3_ACCESS_KEY }}
+          S3_SECRET_KEY: ${{ secrets.S3_SECRET_KEY }}
+          S3_URL: ${{ secrets.S3_URL }}
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}
+
         id: docker_build
         uses: docker/build-push-action@v2
         with:
